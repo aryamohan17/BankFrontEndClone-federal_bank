@@ -1,0 +1,211 @@
+ANGULAR
+-------
+*   Angular is a framework to create front-end weg apps
+*   transpiling - In a compiler engine is not able to compile the ts file,then using transpiling  convert the process  ts  to js
+*   version 
+        ng v 
+*   install
+        npm i -g @angular/cli@latest
+*   create a angular app
+         ng new sample
+*    create angular app without ask routing , then we need routing
+         ng new projectName --routing
+*   clear errors/warning
+        npm i --force
+*   angular routing is yes more than 1 html pages exist in  project.
+*   run:- ng serve --open
+
+                        FOLDERS
+                        -------
+*       ANGULAR         :-      configration between angular and angular app
+*       .vscode         :-      configration between angular and vscode
+*       node_modules    :-      extract install third party packages copies are stored in node_modules
+*       editorconfig    :-      edit configration data exist this file
+*       gitignore       :-      this files data not push into git
+*       angular.json    :-      angular project datas are stored in this file
+*       karma.config.js :-      testing tool for this project
+*       package.json    :-      third party install packages version exist this file
+*       README.md       :-      basic data of this project.
+*       tsconfig.json   :-      ts configration files
+*       assets          :-      images,video & audio files are stored in this file
+*       src
+        ---
+           =>   app
+                ---
+                   $    componets
+                        ---------
+                                # html , css & ts
+                                # @components
+                                        >>      create :- ng g c component_name
+
+
+In an Angular component.ts file
+--------------------------------
+*       firstly execute constructor and then execute ngOnInit
+*       life cycle 
+        ----------
+        ==>>    constructor  ->  ngOnInit  ->  other methods
+Data Binding
+------------
+*       html-view
+*       ts-component
+
+1.      one way binding
+        -----------------
+
+        1.1     componet to view 
+                -----------------
+                1.1.1   String interpollation :- Syntax {{}}
+                1.1.2   property binding       :- [property]=""
+
+        1.2     view to component  
+                ------------------ 
+                1.2.1   event binding   :-      (event)="method()"
+                        -->>    method create after constructor and ngOnInit()
+                        METHOD TO SOLVE
+                        ---------------
+        
+                                1. html page add button 
+                <button type="submit" (click)="login()" class="btn btn-dark text-center">Login</button>
+
+                                2. ts file add   
+                                        login(){
+                                                alert("Login clicked")
+                                        }
+                1.2.2   event binding using $event      :- (event)=method($event)
+                        METHOD TO SOLVE
+                        ---------------
+                                1. firstly variable declared in ts file as string.Eg:-accno=''
+                                2. html page that input field add (change)="acnoChange($event)"
+                                3. ts file add   
+                                        acnoChange(event:any){
+                                       
+                                                this.acno=event.target.value;    
+                                                console.log(this.acno);
+                                        }
+                                 acno is declareed first,so that can be access using this keyword.
+                1.2.3   event binding with template rendering variable :- #variable
+                        METHOD TO SOLVE
+                        ---------------
+                                1. html file input type add variable in hash tag using
+ <input type="password" #psw  id="pass" name="pwd" class="form-control" placeholder="Password">
+ <input type="text" #accno  id="acc" name="accNo" class="form-control" [placeholder]="placeHolder"> 
+<button type="submit" (click)="login(a,p)" class="btn btn-dark text-center">Login</button>
+
+                                2. ts file add
+            login(a:any,p:any){
+                var acc_num = a.value
+                 var acc_psw = p.value
+                 var user_data=this.userDetails // userDetails means data of user details
+                 if(acc_num in user_data)
+                 {
+                   if(acc_psw==user_data[acc_num]["password"]){
+                     alert("login sucessfully")
+                   }
+                   else{
+                     alert("Password incorrect")
+                   }
+                 }
+                 else{
+                   alert("Account not valid!please register")
+                 }                      
+                }
+
+
+2.      Two way binding
+        ---------------
+
+        2.1     ngModel
+                -------
+                *       syntax :- [(ngModel)]="property"
+                *       Add FormsModule in app.module.ts   
+                            import thing is import { FormsModule } from'@angular/forms';
+New component is come
+---------------------
+*       Add new component in this part of app.module.ts
+        @NgModule({
+        declarations: [
+        AppComponent,
+        LoginComponent,
+        HomePageComponent
+        ],
+
+REDIRECT TO ANOTHER PAGE
+------------------------
+1.      open app.component.html -> change <app-login></app-login> to use <router-outlet>
+        </router-outlet> 
+
+
+
+How set path
+------------
+*       open app-routing.module.ts -> set this const variable these paths const routes: Routes = [
+        {path:'',component:LoginComponent},
+        {path:'home page',component:HomePageComponent}
+        ]; ang import the files       
+
+REDIRECTION IN ANGULAR
+----------------------
+FOLDER - PAackage
+File - Module
+
+Router - A class used to redirect.
+Redirection using module name AppRoutingModule
+Redirction methods called navigateByUrl.
+
+Dependency Injection(DI)
+-------------------
+*       To share data from one class to another class.
+*       Inside constructor using DI
+*       Then also using access specifier are public , private
+*       syntax :- accessSpecifier referance:className
+*       Calling method Syntax :- referance.method()
+*       Inside from a class calling method syntax :- this.referance.method()
+
+
+>>      In <a routerLink="path in app-routing.module.ts"></a> tag 
+
+ANGULAR SERVICES
+----------------
+*       TO store datas and methods
+*       All the components can access the data and methods defined in service file easily.
+*       syntax :- ng g s serviceName(ng-angular , g-genertate)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NPM(Node Package Module)
+---
+*   version find node -v
+*   npm -v
+*   node tool is npm.
+
+
+
+Back-end
+--------
+*   database    (Mongo db)
+*   server{node(express frame work)}
