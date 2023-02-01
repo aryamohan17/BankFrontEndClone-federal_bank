@@ -1,0 +1,42 @@
+<!-- <div class="text-center text-danguor"> -->
+  <h3>{{head}}</h3>
+<!-- </div> -->
+<div class="container text-center w-25 pt-3 mt-5 bg-light">
+    
+        <h3>LOGIN</h3>
+    
+<form>
+    <div class="mb-3">
+      <!-- enter a value change to this -->
+            <!-- <input type="text" (change)="acnoChange($event)" id="acc" name="accNo" class="form-control" [placeholder]="placeHolder"> -->
+
+            <!-- using templte rendering -->
+      <!-- <input type="text" #accno  id="acc" name="accNo" class="form-control" [placeholder]="placeHolder"> -->
+
+      <!-- using ngModel -->
+      <input type="text" [(ngModel)]="accno"  id="acc" name="accNo" class="form-control" [placeholder]="placeHolder">
+
+    </div>
+    <div class="mb-3">
+            <!-- <input type="password" (change)="pswChange($event)" id="pass" name="pwd" class="form-control" placeholder="Password"> -->
+
+            <!-- using template rendering -->
+      <!-- <input type="password" #psw  id="pass" name="pwd" class="form-control" placeholder="Password"> -->
+      <!-- using ngModel -->
+            <input type="password" [(ngModel)]="psw"  id="pass" name="pwd" class="form-control" placeholder="Password">
+
+    </div>
+   <div class="text-center pb-3"> 
+    <!-- using ngModel -->
+            <button type="submit" (click)="login()" class="btn btn-dark text-center">Login</button>
+
+    <!-- using template rendering -->
+    <!-- <button type="submit" (click)="login(accno,psw)" class="btn btn-dark text-center">Login</button> -->
+
+
+   </div>
+   <div>
+        <b>Not Register</b>&nbsp;&nbsp;<a style="color: blue; text-decoration: none;" routerLink="register">Register</a>
+   </div>
+  </form>
+</div>

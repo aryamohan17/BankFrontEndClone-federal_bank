@@ -1,0 +1,19 @@
+    <h3 class="text-center" style="color: yellow;">{{head}}</h3> 
+    <div class="container text-center w-25 pt-3 mt-5 bg-light">        
+            <h3>LOGIN</h3>  
+    <form>
+        <div class="mb-3">
+            <input type="text"  id="uname" name="Username" class="form-control" [placeholder]="placeHolder1">
+        </div>
+        <div class="mb-3">
+            <input type="text" id="acc" name="accNo" class="form-control" [placeholder]="placeHolder2">
+        </div>
+        <div class="mb-3">
+            <input type="password"  id="pass" name="pwd" class="form-control" placeholder="Password">
+        </div>
+       <div class="text-center pb-3"> 
+                <button type="button" (click)="register()" class="btn btn-dark text-center">Register</button>  
+       </div>  
+      </form>
+    </div>
+    
