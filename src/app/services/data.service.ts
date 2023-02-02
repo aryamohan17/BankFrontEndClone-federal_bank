@@ -12,4 +12,35 @@ export class DataService {
     1003:{accno:1003,username:"kavi",password:"kavi1",balance:1000},
     1004:{accno:1004,username:"panju",password:"panju1",balance:1000},
   }
+  currentUser:any
+  // data can be added only this service file
+  register(uName:any,Accno:any,pass:any){
+    var userData=this.userDetails
+    if(Accno in userData){
+      return false;
+    }
+    else{
+      userData[Accno]={accno:Accno,username:uName,password:pass}
+      console.log(userData);
+      
+      return true
+    }
+  }
+
+  login(acno:any,pass:any){
+    var userData=this.userDetails
+    if(acno in userData)
+    {
+      if(pass ==userData[acno]["password"]){
+        this.currentUser=userData[acno]["username"]
+        return true
+      }
+      else{
+        return false
+      }
+    }
+    else{
+      return false
+    }
+  }
 }

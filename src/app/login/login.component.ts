@@ -17,34 +17,32 @@ psw=''
  
 // redirect to home page
   constructor(private route:Router,private ds:DataService){}
+  login_(){
+    var accountNumber = this.accno
+    var password = this.psw
 
+    const result = this.ds.login(accountNumber,password)
+    if(result){
+      alert("LOgin sucessfully")
+      this.route.navigateByUrl("home page")
+    }
+    else{
+      alert("Register please or incorrect password")
+    }
+  }
+}
 
   //method create after constructor and ngOnInit()
   // login(){
   //   alert("Login clicked")
   // }
 
-    login(){
+   
 
       // using ngModels
-      var accountNumber = this.accno
-      var password = this.psw
-      var userData= this.ds.userDetails
-
-      if(accountNumber in userData)
-      {
-        if(password ==userData[accountNumber]["password"]){
-          alert("Password correct")
-          this.route.navigateByUrl('home page')
-          //this home page path from app-routing.module.ts
-        }
-        else{
-          alert("password incorrect")
-        }
-      }
-      else{
-        alert("Please register ! Account number incorrect")
-      }
+     
+   
+   
 
       // USING TEMPLATE RENDERING
 
@@ -81,7 +79,7 @@ psw=''
       //   alert("Please register ! Account number incorrect")
       // }
 
-    }
+    
   // acnoChange(event:any){
   //   //acno is declareed first,so that can be access using this keyword.
   //   this.acno=event.target.value; 
@@ -89,4 +87,4 @@ psw=''
   // }
 
 
-}
+

@@ -120,6 +120,7 @@ Data Binding
                 *       syntax :- [(ngModel)]="property"
                 *       Add FormsModule in app.module.ts   
                             import thing is import { FormsModule } from'@angular/forms';
+                *       when we are using ngModel, that time exist a nam eattribute in input type.
 New component is come
 ---------------------
 *       Add new component in this part of app.module.ts
@@ -171,7 +172,15 @@ ANGULAR SERVICES
 *       All the components can access the data and methods defined in service file easily.
 *       syntax :- ng g s serviceName(ng-angular , g-genertate)
 
+TWO METHODS
+-----------
+*       one method access another method , then using return in accessed method.
+*       any code can be give before return value.
 
+DATA ENTER THE INPUT TEXT THEN CLICK ENTER GOING TO ANOTHER PAGE
+----------------------------------------------------------------
+*       Form tag ngsubmit attribute give.
+*       Also button type change to submit 
 
 
 

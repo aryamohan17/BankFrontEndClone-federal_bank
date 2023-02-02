@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  user:any
+  constructor(private ds:DataService){
+    this.user=this.ds.currentUser
+  }
 
 }
