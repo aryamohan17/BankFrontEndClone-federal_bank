@@ -43,4 +43,47 @@ export class DataService {
       return false
     }
   }
+  deposit(acno:any,pass:any,amnt:any)
+  {
+    let userData=this.userDetails
+    var amt=parseInt(amnt)
+    if(acno in userData)
+    {
+      if(pass==userData[acno]["password"]){
+        userData[acno]["balance"]+=amt
+        return userData[acno]["balance"]
+      }
+      else
+      {
+        return false
+
+      }
+    }
+    else{
+      return false
+    }
+  }
+
+  withdraw(acno:any,pass:any,amount:any)
+  {
+    var amt = parseInt(amount)
+    var userData= this.userDetails
+    if(acno in userData){
+      if(pass==userData[acno]["password"]){
+        if(amt<userData[acno]["balance"]){
+          userData[acno]["balance"]-=amt
+          return userData[acno]["balance"]
+        }
+        else{
+          return false
+        }
+      }
+      else{
+        return false
+      }
+    }
+    else{
+      return false
+    }
+  }
 }

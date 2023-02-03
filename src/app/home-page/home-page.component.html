@@ -1,1 +1,43 @@
 <p>Welcome {{user}}</p>
+<div class="row">
+    <div class="col-lg-6 col-sm-12">
+        <div class="container text-center w-75 pt-3 mt-2 bg-light">        
+        <form>
+            <h1>Deposit</h1>
+            <div class="mb-3">
+                <input type="text"  id="depo_acc" name="depo_acc" [(ngModel)]="accno" class="form-control" placeholder="Account number">
+            </div>
+            <div class="mb-3">
+                <input type="password" id="depo_pass" name="depo_pass" [(ngModel)]="pass"  class="form-control" placeholder="Password">
+            </div>
+            <div class="mb-3">
+                <input type="text"  id="deposit" name="deposit" [(ngModel)]="amt" class="form-control" placeholder="Amount">
+            </div>
+           <div class="text-center pb-3"> 
+                    <button type="button" (click)="deposit()" class="btn btn-dark text-center">Deposit</button>  
+           </div>  
+          </form>
+          </div>
+    </div>
+
+    <div class="col-lg-6 col-sm-12">
+        <div class="container text-center w-75 pt-3 mt-2" style="background-color: rgb(56, 53, 5317, 113, 113);">        
+
+        <form>
+            <h1>Withdraw</h1>
+            <div class="mb-3">
+                <input type="text"  id="wdw_uname" name="wdw_uname" [(ngModel)]="accno1" class="form-control" placeholder="User name">
+            </div>
+            <div class="mb-3">
+                <input type="password" id="pass_acc" name="pass_accno" [(ngModel)]=" pass1"  class="form-control" placeholder="Account numbar">
+            </div>
+            <div class="mb-3">
+                <input type="text"  id="wdw" name="wdw" [(ngModel)]="amt1" class="form-control" placeholder="Amount">
+            </div>
+           <div class="text-center pb-3"> 
+                    <button type="button" (click)="withdraw()"  class="btn btn-dark text-center">Withdraw</button>  
+           </div>  
+          </form>
+          </div>
+    </div>
+</div>
