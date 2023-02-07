@@ -6,13 +6,14 @@ import { Injectable } from '@angular/core';
 export class DataService {
   constructor() { }
   userDetails:any={
-    1000:{accno:1000,username:"akku",password:"akku1",balance:0},
-    1001:{accno:1001,username:"ammu",password:"ammu1",balance:1000},
-    1002:{accno:1002,username:"sree",password:"sree1",balance:1000},
-    1003:{accno:1003,username:"kavi",password:"kavi1",balance:1000},
-    1004:{accno:1004,username:"panju",password:"panju1",balance:1000},
+    1000:{accno:1000,username:"akku",password:"akku1",balance:0,transaction:[]},
+    1001:{accno:1001,username:"ammu",password:"ammu1",balance:1000,transaction:[]},
+    1002:{accno:1002,username:"sree",password:"sree1",balance:1000,transaction:[]},
+    1003:{accno:1003,username:"kavi",password:"kavi1",balance:1000,transaction:[]},
+    1004:{accno:1004,username:"panju",password:"panju1",balance:1000,transaction:[]}
   }
   currentUser:any
+  currentAcno:any
   // data can be added only this service file
   register(uName:any,Accno:any,pass:any){
     var userData=this.userDetails
@@ -28,11 +29,13 @@ export class DataService {
   }
 
   login(acno:any,pass:any){
+
     var userData=this.userDetails
     if(acno in userData)
     {
       if(pass ==userData[acno]["password"]){
         this.currentUser=userData[acno]["username"]
+        this.currentAcno=acno
         return true
       }
       else{
@@ -51,6 +54,8 @@ export class DataService {
     {
       if(pass==userData[acno]["password"]){
         userData[acno]["balance"]+=amt
+        userData[acno]["transaction"].push({Type:"credit",Amount:amnt})
+       
         return userData[acno]["balance"]
       }
       else
@@ -72,6 +77,9 @@ export class DataService {
       if(pass==userData[acno]["password"]){
         if(amt<userData[acno]["balance"]){
           userData[acno]["balance"]-=amt
+          userData[acno]["transaction"].push({Type:"Debit",Amount:amount})
+          console.log(userData);
+          
           return userData[acno]["balance"]
         }
         else{
@@ -86,4 +94,9 @@ export class DataService {
       return false
     }
   }
+
+  transaction(accno:any){
+    return this.userDetails[accno]["transaction"]
+  }
+
 }

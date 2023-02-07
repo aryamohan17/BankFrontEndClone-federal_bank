@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'home page',component:HomePageComponent},
-  {path:'register',component: RegisterComponent}
+  {path:'register',component: RegisterComponent},
+  {path:'transaction history',component:TransactionHistoryComponent}
 ];
 
 @NgModule({

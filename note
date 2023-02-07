@@ -165,6 +165,7 @@ Dependency Injection(DI)
 
 
 >>      In <a routerLink="path in app-routing.module.ts"></a> tag 
+>>      Already exist path and create a new path,that creating syntax is In <a routerLink="/path in app-routing.module.ts"></a> tag 
 
 ANGULAR SERVICES
 ----------------
@@ -182,7 +183,13 @@ DATA ENTER THE INPUT TEXT THEN CLICK ENTER GOING TO ANOTHER PAGE
 *       Form tag ngsubmit attribute give.
 *       Also button type change to submit 
 
-
+Angular directives
+------------------
+*       to manipulate a DOM
+        Types are
+        ---------
+        1.      component directive
+        2.      strucutural directive - Syntax:- *ngFor
 
 
 
