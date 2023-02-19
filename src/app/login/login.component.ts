@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -12,16 +13,20 @@ export class LoginComponent {
 head="Your perfect banking partner"
 // property binding
 placeHolder="Account number"
-accno=''
-psw=''
+
  
 // redirect to home page
-  constructor(private route:Router,private ds:DataService){}
+  constructor(private route:Router,private ds:DataService,private fb:FormBuilder){}
+  loginForm=this.fb.group({
+    acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+    psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]]
+  })
   login_(){
-    var accountNumber = this.accno
-    var password = this.psw
+    var accountNumber = this.loginForm.value.acno
+    var password = this.loginForm.value.psw
 
     const result = this.ds.login(accountNumber,password)
+    if(this.loginForm.valid){
     if(result){
       alert("LOgin sucessfully")
       this.route.navigateByUrl("home page")
@@ -29,6 +34,10 @@ psw=''
     else{
       alert("Register please or incorrect password")
     }
+  }
+  else{
+    alert("Invalid entires of accno and password")
+  }
   }
 }
 

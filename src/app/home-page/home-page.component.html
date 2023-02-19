@@ -1,20 +1,40 @@
+<div class="pt-4 text-end ps-2">
+    <button class="bg-dark text-warning border-dark" (click)="deleteAcc()">Delete</button>
+    <button class="bg-danger text-white border-danger ms-3 " (click)="logout()">Logout</button>
+
+</div>
+<span>{{currentDate | date:'short'}}</span>
+
+<div class="text-end">
+
+</div>
+
 <p>Welcome {{user}}</p>
+<!-- <app-delete-account [parentAccno]="accno"></app-delete-account> -->
+
+<app-delete-account (oncancel)="cancel()" [parentAccno]="accno"></app-delete-account>
+
 <div class="container w-25 text-center border border-light rounded-pill bg-light">
     <a routerLink="/transaction history" class="text-dark text-center ms-5">Transaction history</a>
+
 </div>
-<div class="row">
-    <div class="col-lg-6 col-sm-12">
+
+<div>
+</div>
+
+<div  class="row">
+    <div class="col-lg-6 col-sm-12" [ngClass]="accno?'styles':''">
         <div class="container text-center w-75 pt-3 mt-2 bg-dark rounded-3">        
-        <form>
+        <form [formGroup]="depositForm">
             <h1 class="text-white">Deposit</h1>
             <div class="mb-3">
-                <input type="text"  id="depo_acc" name="depo_acc" [(ngModel)]="accno" class="form-control" placeholder="Account number">
+                <input type="text"  id="depo_acc" name="depo_acc" formControlName="acno" class="form-control" placeholder="Account number">
             </div>
             <div class="mb-3">
-                <input type="password" id="depo_pass" name="depo_pass" [(ngModel)]="pass"  class="form-control" placeholder="Password">
+                <input type="password" id="depo_pass" name="depo_pass" formControlName="pass"  class="form-control" placeholder="Password">
             </div>
             <div class="mb-3">
-                <input type="text"  id="deposit" name="deposit" [(ngModel)]="amt" class="form-control" placeholder="Amount">
+                <input type="text"  id="deposit" name="deposit" formControlName="amt" class="form-control" placeholder="Amount">
             </div>
            <div class="text-center pb-3"> 
                     <button type="button" (click)="deposit()" class="btn btn-dark text-center">Deposit</button>  
@@ -23,19 +43,19 @@
           </div>
     </div>
 
-    <div class="col-lg-6 col-sm-12">
+    <div class="col-lg-6 col-sm-12" [ngClass]="accno?'styles':''">
         <div class="container text-center w-75 pt-3 mt-2 bg-light" >        
 
-        <form>
+        <form [formGroup]="withdrawForm">
             <h1>Withdraw</h1>
             <div class="mb-3">
-                <input type="text"  id="wdw_uname" name="wdw_uname" [(ngModel)]="accno1" class="form-control" placeholder="Account number">
+                <input type="text"  id="wdw_uname" name="wdw_uname" formControlName="accno" class="form-control" placeholder="Account number">
             </div>
             <div class="mb-3">
-                <input type="password" id="pass_acc" name="pass_accno" [(ngModel)]=" pass1"  class="form-control" placeholder="Password">
+                <input type="password" id="pass_acc" name="pass_accno" formControlName="pass"  class="form-control" placeholder="Password">
             </div>
             <div class="mb-3">
-                <input type="text"  id="wdw" name="wdw" [(ngModel)]="amt1" class="form-control" placeholder="Amount">
+                <input type="text"  id="wdw" name="wdw" formControlName="amount" class="form-control" placeholder="Amount">
             </div>
            <div class="text-center pb-3"> 
                     <button type="button" (click)="withdraw()"  class="btn btn-dark text-center">Withdraw</button>  

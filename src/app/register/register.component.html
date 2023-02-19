@@ -1,15 +1,24 @@
     <h3 class="text-center" style="color: yellow;">{{head}}</h3> 
     <div class="container text-center w-25 pt-3 mt-5 bg-light">        
-            <h3>LOGIN</h3>  
-    <form>
+            <h3>Register</h3>  
+    <form [formGroup]="registerForm">
         <div class="mb-3">
-            <input type="text"  id="uname" name="Username" [(ngModel)]="uname" class="form-control" [placeholder]="placeHolder1">
+            <input type="text" formControlName="uname"  id="uname" name="Username" class="form-control" [placeholder]="placeHolder1">
+        </div>
+        <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched">
+            <p class="text-danger">Charaters only or please fill the field</p>
         </div>
         <div class="mb-3">
-            <input type="text" id="acc" name="accNo" [(ngModel)]="accno" class="form-control" [placeholder]="placeHolder2">
+            <input type="text" formControlName="acno" id="acc" name="accNo"  class="form-control" [placeholder]="placeHolder2">
+        </div>
+        <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched">
+            <p class="text-danger">Digits only or please fill the field</p>
         </div>
         <div class="mb-3">
-            <input type="password"  id="pass" name="pwd" [(ngModel)]="pwd" class="form-control" placeholder="Password">
+            <input type="password" formControlName="psw"  id="pass" name="pwd"  class="form-control" placeholder="Password">
+        </div>
+        <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched">
+            <p class="text-danger">please fill the field</p>
         </div>
        <div class="text-center pb-3"> 
                 <button type="button" (click)="register()" class="btn btn-dark text-center">Register</button>  

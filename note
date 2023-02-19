@@ -56,7 +56,7 @@ Data Binding
         1.1     componet to view 
                 -----------------
                 1.1.1   String interpollation :- Syntax {{}}
-                1.1.2   property binding       :- [property]=""
+                1.1.2   property binding      :- [property]=""
 
         1.2     view to component  
                 ------------------ 
@@ -88,9 +88,9 @@ Data Binding
                         METHOD TO SOLVE
                         ---------------
                                 1. html file input type add variable in hash tag using
- <input type="password" #psw  id="pass" name="pwd" class="form-control" placeholder="Password">
- <input type="text" #accno  id="acc" name="accNo" class="form-control" [placeholder]="placeHolder"> 
-<button type="submit" (click)="login(a,p)" class="btn btn-dark text-center">Login</button>
+                <input type="password" #psw  id="pass" name="pwd" class="form-control" placeholder="Password">
+                <input type="text" #accno  id="acc" name="accNo" class="form-control" [placeholder]="placeHolder"> 
+                <button type="submit" (click)="login(a,p)" class="btn btn-dark text-center">Login</button>
 
                                 2. ts file add
             login(a:any,p:any){
@@ -120,7 +120,7 @@ Data Binding
                 *       syntax :- [(ngModel)]="property"
                 *       Add FormsModule in app.module.ts   
                             import thing is import { FormsModule } from'@angular/forms';
-                *       when we are using ngModel, that time exist a nam eattribute in input type.
+                *       when we are using ngModel, that time exist a name attribute in input type.
 New component is come
 ---------------------
 *       Add new component in this part of app.module.ts
@@ -133,8 +133,7 @@ New component is come
 
 REDIRECT TO ANOTHER PAGE
 ------------------------
-1.      open app.component.html -> change <app-login></app-login> to use <router-outlet>
-        </router-outlet> 
+1.      open app.component.html -> change <app-login></app-login> to use <router-outlet> </router-outlet> 
 
 
 
@@ -143,7 +142,7 @@ How set path
 *       open app-routing.module.ts -> set this const variable these paths const routes: Routes = [
         {path:'',component:LoginComponent},
         {path:'home page',component:HomePageComponent}
-        ]; ang import the files       
+        ]; and import the files       
 
 REDIRECTION IN ANGULAR
 ----------------------
@@ -165,7 +164,8 @@ Dependency Injection(DI)
 
 
 >>      In <a routerLink="path in app-routing.module.ts"></a> tag 
->>      Already exist path and create a new path,that creating syntax is In <a routerLink="/path in app-routing.module.ts"></a> tag 
+>>      Already exist path and create a new path,that creating syntax is In 
+                <a routerLink="/path inapp-routingmodulets"><a> tag 
 
 ANGULAR SERVICES
 ----------------
@@ -186,18 +186,71 @@ DATA ENTER THE INPUT TEXT THEN CLICK ENTER GOING TO ANOTHER PAGE
 Angular directives
 ------------------
 *       to manipulate a DOM
+*       In Angular, Directives are defined as classes that can add new behavior to the elements in the template or modify existing behavior.
         Types are
         ---------
         1.      component directive
-        2.      strucutural directive - Syntax:- *ngFor
+                * Component Directives: It forms the main class and is declared by @Component. It contains the details on component processing, instantiated and usage at run time.
+                Eg::- @Component({
+                                selector: 'app-root',
+                                templateUrl: './app.component.html',
+                                styleUrls: ['./app.component.css']
+                                })
+                Three parameters discussed below: 
+                        1. Selector: Tells the template tag which specifies the beginning and end of the component.
+                        2. templateURL: Consists of the template used for the component.
+                        3. styleUrls: It is of array type which consists of all the style format files used for the template.
+
+        2.      strucutural directive -
+
+                         Structure directives manipulate the DOM elements. These directives have a * sign before the directive
+                        Syntax:- *ngFor *ngIf
+        3.      attribute directive - 
+                         Attribute directives are used to change the look and behavior of the DOM element.
+                        syntax [ngClass]
+
+validation in angular
+---------------------
+1.template driven form
+2.model driven form
+        2.1      reactive form - used to create model of form
+                        >> ReactiveFormsModule module used.
+                        >> reactive form contain group,array,control
+                        >> FormBuilder - create form
+                        >> group()-method to create method
+                
+*       When we are click the delete button ,then hide the withdraw and deposit portion 
+        >>      then using [ngClass]="accno?'styles':''" in home html page. and style class applied in style.css.
+*       access the date using Date() class.
+Local storage in Angular
+------------------------
+localStorage.getItem()
+localStorage.setItem()
+localStorage.removeItem()
+
+ts to json() --> stringify
+json to ts   --> parse
+
+Parent child communication
+-----------------------------
+* @Input() parent to child
+* @output() child to parent
+* declaration of string item:string | define
 
 
+EVENT CREATION IN ANGULAR
+-------------------------
+*       We can create a event in our own angular project.
+        >> EventEmitter - class used to create undefined events.
+                >> Syntax :- eventname = new EventEmitter()
+                >> When this event work using emit() method. or To define the working time/to start the event. 
+DATE class
+----------
+class is date
 
-
-
-
-
-
+Angular pipes
+-------------
+* to convert datas into another format.
 
 
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -8,20 +9,27 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(private ds:DataService,private rou:Router){}
-  head="Your banking perfect patner"
+  constructor(private ds:DataService,private rou:Router,private fb:FormBuilder){}
+  head="Your banking perfect partner"
   placeHolder1="Username"
   placeHolder2="Account number"
 
-  uname=''
-  accno=''
-  pwd=''
+ 
+
+  registerForm=this.fb.group({
+    acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+    uname:['',[Validators.required,Validators.pattern('[a-zA-Z]+')]],
+    psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]]
+  })
+
   register(){
 
-    var userName = this.uname
-    var accountNum = this.accno
-    var password = this.pwd
+    var userName = this.registerForm.value.uname
+    var accountNum = this.registerForm.value.acno
+    var password = this.registerForm.value.psw
+    if(this.registerForm.valid){
 
+   
     const result=this.ds.register(userName,accountNum,password)
     if(result)
     {
@@ -32,4 +40,9 @@ export class RegisterComponent {
       alert('Already register')
     }
   }
+  else
+  {
+    alert("invalid entries or please fill the field.....")
+  }
+}
 }
