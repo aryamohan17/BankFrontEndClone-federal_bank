@@ -30,15 +30,16 @@ export class RegisterComponent {
     if(this.registerForm.valid){
 
    
-    const result=this.ds.register(userName,accountNum,password)
-    if(result)
-    {
-      alert("registered")
-      this.rou.navigateByUrl("");
-    }
-    else{
-      alert('Already register')
-    }
+    this.ds.register(userName,accountNum,password).subscribe((result:any)=>{
+      alert(result.message)
+      this.rou.navigateByUrl("")
+    },
+    result=>{
+      alert(result.error.message)
+      
+    })
+    
+  
   }
   else
   {
@@ -46,3 +47,12 @@ export class RegisterComponent {
   }
 }
 }
+// const result=this.ds.register(userName,accountNum,password)
+// if(result)
+// {
+//   alert("registered")
+//   this.rou.navigateByUrl("");
+// }
+// else{
+//   alert('Already register')
+// }

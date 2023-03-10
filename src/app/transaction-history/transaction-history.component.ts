@@ -9,7 +9,21 @@ import { DataService } from '../services/data.service';
 export class TransactionHistoryComponent {
 transactionData:any
 constructor(private ds:DataService){
-  this.transactionData=this.ds.transaction(this.ds.currentAcno)
-  console.log(this.transactionData);
+this.ds.transaction(JSON.parse(localStorage.getItem("currentAcno")||"")).subscribe((result:any)=>{
+  this.transactionData=result.transaction
+})
 }
 }
+
+
+
+
+
+
+
+
+// TRANSACTION
+// constructor(private ds:DataService){
+//   this.transactionData=this.ds.transaction(this.ds.currentAcno)
+//   console.log(this.transactionData);
+// }

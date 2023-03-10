@@ -255,6 +255,30 @@ Angular pipes
 
 
 
+                API creation in angular
+                -----------------------
+
+* HttpClientModule - module to create web api
+* Httpclient       - class inside httpclientModule
+normal case
+-----------
+folder -> file -> class -> method
+angular case
+------------
+module -> package -> class -> method
+* import to app.modle.ts
+
+Asynchronus code handling in ts
+--------------------------------
+js - promise            -  resolve then()
+                        -  reject catch()
+
+ts - observable         -  resolve subscribe()
+                        -  reject catch()
+
+HEADER GENERATION FOR API REQUEST
+---------------------------------
+HttpHeaders - class used to generate header.
 
 
 
@@ -266,15 +290,12 @@ Angular pipes
 
 
 
-NPM(Node Package Module)
----
-*   version find node -v
-*   npm -v
-*   node tool is npm.
 
 
 
-Back-end
---------
-*   database    (Mongo db)
-*   server{node(express frame work)}
+
+
+
+
+
+

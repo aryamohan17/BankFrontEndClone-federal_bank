@@ -25,15 +25,29 @@ placeHolder="Account number"
     var accountNumber = this.loginForm.value.acno
     var password = this.loginForm.value.psw
 
-    const result = this.ds.login(accountNumber,password)
+    // const result = this.ds.login(accountNumber,password)
     if(this.loginForm.valid){
-    if(result){
-      alert("LOgin sucessfully")
-      this.route.navigateByUrl("home page")
-    }
-    else{
-      alert("Register please or incorrect password")
-    }
+    this.ds.login(accountNumber,password).subscribe((result:any)=>{
+      localStorage.setItem("currentUser",JSON.stringify(result.currentUser))
+      localStorage.setItem("currentAcno",JSON.stringify(result.currentAcno))
+      localStorage.setItem("token",JSON.stringify(result.tocken))
+      alert(result.message)
+        this.route.navigateByUrl("home page")
+    },
+    result=>{
+
+      alert(result.error.message)
+
+
+    })
+
+    // if(result){
+    //   alert("LOgin sucessfully")
+    //   this.route.navigateByUrl("home page")
+    // }
+    // else{
+    //   alert("Register please or incorrect password")
+    // }
   }
   else{
     alert("Invalid entires of accno and password")
