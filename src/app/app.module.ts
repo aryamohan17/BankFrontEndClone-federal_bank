@@ -9,6 +9,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { RegisterComponent } from './register/register.component';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
+import { FirstPageComponent } from './first-page/first-page.component';
+import { AboutComponent } from './about/about.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { DeleteAccountComponent } from './delete-account/delete-account.componen
     HomePageComponent,
     RegisterComponent,
     TransactionHistoryComponent,
-    DeleteAccountComponent
+    DeleteAccountComponent,
+    FirstPageComponent,
+    AboutComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

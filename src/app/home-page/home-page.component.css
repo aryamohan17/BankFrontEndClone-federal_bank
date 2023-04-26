@@ -1,4 +1,15 @@
-p{
+/* p{
     color: yellow;
     font-size: 50px;
+} */
+.dates{
+    padding-left: 1000px;
+}
+.btns{
+    padding-left: 1100px;
+}
+.background_img{
+    background-image:url("https://i.postimg.cc/05fPJ0sq/home-Background.webp");
+    height: 100vh;
+    
 }

@@ -11,6 +11,7 @@ transactionData:any
 constructor(private ds:DataService){
 this.ds.transaction(JSON.parse(localStorage.getItem("currentAcno")||"")).subscribe((result:any)=>{
   this.transactionData=result.transaction
+  // transaction
 })
 }
 }

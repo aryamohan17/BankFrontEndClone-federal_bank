@@ -98,6 +98,10 @@ export class DataService {
 
   }
 
+  deleteAccount(accno:any){
+    return this.http.delete('http://localhost:3000/delete/'+accno,this.getTocken())
+  }
+
 }
 
 

@@ -32,7 +32,7 @@ export class RegisterComponent {
    
     this.ds.register(userName,accountNum,password).subscribe((result:any)=>{
       alert(result.message)
-      this.rou.navigateByUrl("")
+      this.rou.navigateByUrl("login")
     },
     result=>{
       alert(result.error.message)

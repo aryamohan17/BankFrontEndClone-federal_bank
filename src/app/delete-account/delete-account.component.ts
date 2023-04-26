@@ -10,7 +10,14 @@ export class DeleteAccountComponent {
 
   @Output() oncancel=new EventEmitter()
 
+  // child to parent
+  @Output() onDelete = new EventEmitter()
+
   onCancel(){
     this.oncancel.emit()
+  }
+  deleteAccount(){
+    // current account number can be passed using parentAccno in emit method.
+    this.onDelete.emit(this.parentAccno)
   }
 }

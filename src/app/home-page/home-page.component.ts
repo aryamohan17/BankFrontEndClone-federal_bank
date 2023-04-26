@@ -15,16 +15,18 @@ export class HomePageComponent {
 
  
   constructor(private ds:DataService,private fb:FormBuilder,private dr:Router){
+    if(localStorage.getItem("currentUser")){
     this.user = JSON.parse(localStorage.getItem("currentUser")|| '')
+    }
     // this.user=this.ds.currentUser
     // access the date using Date()
     this.currentDate=new Date()
   }
   ngOnInit():void{
-    // if(!localStorage.getItem("currentAccountNum")){
-    //   alert("Please login")
-    //   this.dr.navigateByUrl("")
-    // }
+    if(!localStorage.getItem("token")){
+      alert("Please login")
+      this.dr.navigateByUrl("login")
+    }
   }
   depositForm=this.fb.group({
     acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
@@ -75,16 +77,58 @@ export class HomePageComponent {
   }
   logout(){
     localStorage.removeItem("currentUser")
-    localStorage.removeItem("currentAccountNum")
-    this.dr.navigateByUrl("")
+    localStorage.removeItem("currentAcno")
+    localStorage.removeItem("token")
+    this.dr.navigateByUrl("login")
   }
   deleteAcc(){
-   this.accno= JSON.parse(localStorage.getItem("currentAccountNum")||"")
+   this.accno= JSON.parse(localStorage.getItem("currentAcno")||"")
   }
   cancel(){
     this.accno=''
   }
+
+  Delete(event:any){
+    this.ds.deleteAccount(event).subscribe((result:any)=>{
+      alert(result.message)
+      this.logout()
+    })
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // DEPOSIT
